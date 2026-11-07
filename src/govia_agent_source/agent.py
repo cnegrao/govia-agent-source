@@ -59,7 +59,24 @@ def create_agent():
     return graph.compile()
 
 
+class RepositoryAnalysisAgent:
+    """Runnable LangGraph agent that produces evidence-backed source observations.
+
+    Its structural declaration enables discovery, not governance approval.
+    """
+    kind = "agent"
+
+    def __init__(self) -> None:
+        self.workflow = create_agent()
+
+    def run(self, repository_path: str, question: str) -> AnalysisState:
+        return self.workflow.invoke({
+            "repository_path": repository_path,
+            "question": question,
+            "evidence": [],
+            "answer": "",
+        })
+
+
 def analyze(repository_path: str, question: str) -> AnalysisState:
-    workflow = create_agent()
-    return workflow.invoke({"repository_path": repository_path, "question": question,
-                            "evidence": [], "answer": ""})
+    return RepositoryAnalysisAgent().run(repository_path, question)
