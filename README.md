@@ -53,4 +53,6 @@ Dois agentes executáveis em `src/govia_agent_source/ouvidoria/`, sem rede e sem
 
 Também fazem parte da fonte: `mcp.json` (servidor `consulta-protocolo-mcp`), `db/schema.sql` (tabelas `ouvidoria.manifestacao`, com `cpf` e `email`, e `ouvidoria.encaminhamento`) e `config/knowledge-base.yaml`.
 
+Formato: cada agente fica num arquivo sem blocos de aspas triplas, com `kind`, `MODEL_REFERENCE` e `tools` declarados dentro da classe e só atribuições simples nela. É o formato em que o scanner consegue provar as relações agente → modelo e agente → ferramenta.
+
 O que a GOV IA deve **propor** ao descobrir esta versão: os agentes e suas versões, modelos, prompts, ferramentas, a API, o servidor MCP, a base de conhecimento, as tabelas e as colunas. Tudo como proposta, para revisão humana. Nada aqui é verdade canônica, avaliação de risco ou conformidade.
