@@ -1,0 +1,5 @@
+{
+  "serverIdentity": "consulta-protocolo-mcp",
+  "entrypoint": "src/govia_agent_source/ouvidoria/ferramentas.py",
+  "tools": ["consultar_protocolo", "encaminhar_setor"]
+}
