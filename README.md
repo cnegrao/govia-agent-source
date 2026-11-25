@@ -41,3 +41,16 @@ To activate optional model interpretation, set `OPENAI_API_KEY` **in your local 
 - No direct writing to GOV IA canonical tables.
 - No invented evidence, risk scores or certifications.
 - This is an actual source-code repository, not a source of pre-generated demonstration business records.
+
+## Versão 2 — fluxo de ouvidoria
+
+Dois agentes executáveis em `src/govia_agent_source/ouvidoria/`, sem rede e sem banco:
+
+| Agente | Modelo | Ferramentas | Outros vínculos |
+|---|---|---|---|
+| `TriagemManifestacaoAgent` | `gpt-4.1-mini` | `mascarar_dados_pessoais`, `classificar_manifestacao`, `consultar_protocolo` | base de conhecimento `manual-atendimento-cidadao` |
+| `EncaminhamentoAgent` | `gpt-4.1` | `encaminhar_setor`, `registrar_resposta` | API `sistema-processos-api`; exige aprovação humana |
+
+Também fazem parte da fonte: `mcp.json` (servidor `consulta-protocolo-mcp`), `db/schema.sql` (tabelas `ouvidoria.manifestacao`, com `cpf` e `email`, e `ouvidoria.encaminhamento`) e `config/knowledge-base.yaml`.
+
+O que a GOV IA deve **propor** ao descobrir esta versão: os agentes e suas versões, modelos, prompts, ferramentas, a API, o servidor MCP, a base de conhecimento, as tabelas e as colunas. Tudo como proposta, para revisão humana. Nada aqui é verdade canônica, avaliação de risco ou conformidade.

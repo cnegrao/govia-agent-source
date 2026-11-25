@@ -1,0 +1,4 @@
+knowledge_base:
+  identity: manual-atendimento-cidadao
+  source: manual interno de atendimento da ouvidoria
+  mode: retrieval

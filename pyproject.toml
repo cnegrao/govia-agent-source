@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "govia-agent-source"
-version = "0.1.0"
+version = "0.2.0"
 description = "Real LangGraph agent for evidence-backed Git repository analysis"
 readme = "README.md"
 requires-python = ">=3.11"
